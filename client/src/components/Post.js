@@ -5,8 +5,9 @@ import { getUserCurrent } from "../redux/checkCurrentUser";
 import axios from "axios";
 const Post = ({ content, author, time, id }) => {
   const dispatch = useDispatch();
+  const token = LocalStorage('token')
   useEffect(() => {
-    dispatch(getUserCurrent());
+    dispatch(getUserCurrent(token));
   }, []);
 
   const { name } = useSelector((state) => state.namUserCurrent);
